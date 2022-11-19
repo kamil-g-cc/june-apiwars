@@ -42,6 +42,8 @@ function getPlanetsDetails(input) {
         if (data.previous != null) {
             let buttonDiv = document.getElementById("buttons");
             let prevButton = document.createElement("button");
+            prevButton.classList.add("btn");
+            prevButton.classList.add("btn-primary");
             prevButton.innerText = "Previous";
             buttonDiv.appendChild(prevButton);
             prevButton.addEventListener("click", function() {
@@ -56,6 +58,8 @@ function getPlanetsDetails(input) {
         if (data.next != null) {
             let buttonDiv = document.getElementById("buttons");
             let nextButton = document.createElement("button");
+            nextButton.classList.add("btn");
+            nextButton.classList.add("btn-primary");
             nextButton.innerText = "Next";
             buttonDiv.appendChild(nextButton);
             nextButton.addEventListener("click", function () {
@@ -85,4 +89,10 @@ function formatNumber(number) {
         }
     }
     return newNumber.join('');
+}
+
+function showModal(){
+    const modal = document.querySelector(".modal");
+    const myModal = new bootstrap.Modal(modal)
+    myModal.show();
 }
