@@ -5,8 +5,9 @@
     <title>API Wars</title>
     <script src="{{ url_for('static', filename='api_wars.js') }}" defer></script>
 </head>
-<body onload="getPlanetsDetails()">
+<body onload="getPlanetsDetails('https://swapi.dev/api/planets/')">
 <h1> Star Wars universe planets</h1>
+
 <table>
     <thead>
     <tr>
@@ -14,8 +15,7 @@
         <th>diameter</th>
         <th>climate</th>
         <th>terrain</th>
-        <th>surface</th>
-        <th>water</th>
+        <th>surface water</th>
         <th>population</th>
     </tr>
     </thead>
