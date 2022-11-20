@@ -35,7 +35,8 @@ function getPlanetsDetails(input) {
                 residents.setAttribute("res_"+residentsCount, residentAPI);
             })
             if(residentsCount>0){
-                residents.innerHTML='<button class="btn btn-outline-secondary">'+residentsCount +' residents </button>';
+                residents.setAttribute("res_count", residentsCount);
+                residents.innerHTML='<button onclick="getResidentsDetails()" class="btn btn-outline-secondary">'+residentsCount +' residents </button>';
             } else {
                 residents.innerHTML='No known residents';
             }
@@ -108,4 +109,13 @@ function showModal(){
     const modal = document.querySelector(".modal");
     const myModal = new bootstrap.Modal(modal)
     myModal.show();
+}
+
+function getResidentsDetails(){
+    let count = event.target.parentNode.getAttribute("res_count");
+    let api = [];
+    for(x = 0; x < count; x++){
+        api.push(event.target.parentNode.getAttribute("res_"+(x+1)));
+    }
+    console.log(api);
 }
