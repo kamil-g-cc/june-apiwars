@@ -11,7 +11,8 @@ function getPlanetsDetails(input) {
             let terrainCol = document.createElement('td');
             let surfaceWaterCol = document.createElement('td');
             let populationCol = document.createElement('td');
-
+            let residents = document.createElement("td");
+            let residentsCount = 0;
             let diameter;
             diameter = formatNumber(planet.diameter) + " km";
             let population;
@@ -28,13 +29,25 @@ function getPlanetsDetails(input) {
             terrainCol.innerHTML = planet.terrain;
             surfaceWaterCol.innerHTML = surface_water;
             populationCol.innerHTML = population;
-
+    
+            planet.residents.forEach(residentAPI=>{
+                residentsCount++;
+                residents.setAttribute("res_"+residentsCount, residentAPI);
+            })
+            if(residentsCount>0){
+                residents.innerHTML='<button class="btn btn-outline-secondary">'+residentsCount +' residents </button>';
+            } else {
+                residents.innerHTML='No known residents';
+            }
+            residentsCount = 0;
+            
             row.appendChild(nameCol);
             row.appendChild(diameterCol);
             row.appendChild(climateCol);
             row.appendChild(terrainCol);
             row.appendChild(surfaceWaterCol);
             row.appendChild(populationCol);
+            row.appendChild(residents);
             tbody.append(row);
         }
         )
